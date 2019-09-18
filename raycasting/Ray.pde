@@ -57,10 +57,4 @@ class Ray
   {
     return a.x * b.y - a.y * b.x;
   }
-  
-  void render()
-  {
-    stroke(255);
-    line(origin.x, origin.y, origin.x + direction.x * 20, origin.y + direction.y * 20);
-  }
 }

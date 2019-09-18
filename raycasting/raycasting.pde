@@ -6,12 +6,12 @@ PVector r;
 
 void setup()
 {
-  size(800, 600);
+  size(1200, 800);
   
   rays = new ArrayList<Ray>();
   lineSegments = new ArrayList<LineSegment>();
-  numRays = 360;
-  numSegments = 5;
+  numRays = 300;
+  numSegments = 3;
   top = new LineSegment(new PVector(0, 0), new PVector(width, 0));
   bottom = new LineSegment(new PVector(0, height), new PVector(width, height));
   left = new LineSegment(new PVector(0, 0), new PVector(0, height));
@@ -36,6 +36,8 @@ void setup()
 
 void draw()
 {
+  println(frameRate);
+  
   background(0);
   
   for(Ray ray : rays)
@@ -57,11 +59,14 @@ void draw()
           r = PVector.sub(intersection, ray.origin);
         }
       }
-      
-      segment.render();
     }
     
     stroke(255, 100);
     line(ray.origin.x, ray.origin.y, ray.origin.x + r.x, ray.origin.y + r.y);
+  }
+  
+  for(LineSegment segment : lineSegments)
+  {
+    segment.render();
   }
 }
